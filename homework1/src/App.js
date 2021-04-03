@@ -1,9 +1,11 @@
-import styles from "./App.scss";
-import EmployeeList from "./components/EmployeeList/index";
-import ModalWindow from "./components/ModalWindow/index";
+import styles from "./App.module.scss";
+import EmployeeList from "./components/EmployeeList";
+import ModalWindow from "./components/ModalWindow";
 import { BrowserRouter, Route } from "react-router-dom";
+import React from "react";
 
-function App() {
+
+function App (){
   return (
     <BrowserRouter>
       <div className={styles.App}>

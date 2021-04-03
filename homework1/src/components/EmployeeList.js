@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./styles.modules.scss";
-import Employee from "../Employee/index";
+import styles from "../assets/EmployeeList.module.scss";
+import Employee from "./Employee";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getEmployees } from "../../redux/action/employee";
+import { getEmployees } from "../redux/action/employee";
 
 class EmployeeList extends React.Component {
   showList() {

@@ -1,9 +1,9 @@
-import { Component } from "react";
-import styles from "./styles.module.scss";
+import React from "react";
+import styles from "../assets/ModalWindow.module.scss";
 import { connect } from "react-redux";
-import { addEmployee } from "../../redux/action/employee";
+import { addEmployee } from "../redux/action/employee";
 
-class ModalWindow extends Component {
+class ModalWindow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

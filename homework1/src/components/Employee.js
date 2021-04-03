@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./styles.module.scss";
+import styles from "../assets/Employee.module.scss";
 import { connect } from "react-redux";
-import { deleteEmployee } from "../../redux/action/employee";
+import { deleteEmployee } from "../redux/action/employee";
 
 class Employee extends React.Component {
   deleteEmployee = id => {
