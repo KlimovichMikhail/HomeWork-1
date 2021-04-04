@@ -1,34 +1,32 @@
 .employee {
-  width: 350px;
-  height: auto;
-  background-color: #f9f9f9;
-  float: left;
-  margin: 10px 15px 15px 10px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 0 0 8px 8px;
-  position: relative;
+  background: #fff;
+  width: 60%;
 }
-
-.bottom {
-  flex-grow: 1;
-  padding: 20px 25px;
-  text-align: center;
-}
-.name {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-
 button {
-  background: #02b3e4;
-  margin-left: 8px;
-  padding: 15px 40px;
+  background: #e40202;
+  padding: 10px ;
   text-align: center;
   color: #fff;
   font-family: "Work Sans", sans-serif;
   border-radius: 4px;
-  border: none;
-  font-size: 15px;
+  border:black;
+  font-size: 20px;
+vertical-align: middle;
+margin: 5px;
+  
+}
+table {
+  border: 1px solid black;
+
+  table-layout: fixed;
+  width: 800px;
+}
+
+td,
+th {
+  border: solid 1px black;
+  vertical-align: bottom;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
 }
