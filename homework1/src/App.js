@@ -1,12 +1,12 @@
 import styles from "./App.module.scss";
-import EmployeeList from "./components/EmployeeList";
+import EmployeesPage from "./components/EmployeesPage";
 
 import React from "react";
 
 function App() {
   return (
     <div className={styles.App}>
-      <EmployeeList />
+      <EmployeesPage />
     </div>
   );
 }

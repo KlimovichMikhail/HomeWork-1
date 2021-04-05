@@ -8,22 +8,24 @@ const AddEmployee = props => {
     const { name, value } = event.target;
     setEmployee({ ...employee, [name]: value });
   };
-  return (
-    <form className={styles.form}
-      onSubmit={event => {
-        event.preventDefault();
-        if (!employee.firstName || !employee.lastName) return;
+  const handleFormChange = event => {
+    event.preventDefault();
+    if (!employee.firstName || !employee.lastName) return;
+    props.addEmployee(employee);
+    setEmployee(initialFormState);
+  };
 
-        props.addEmployee(employee);
-        setEmployee(initialFormState);
-      }}
-    >
-      <label>First Name</label>
-      <input type="text" name="firstName" value={employee.firstName} onChange={handleInputChange} />
-      <label>Last Name</label>
-      <input type="text" name="lastName" value={employee.lastName} onChange={handleInputChange} />
-      <button>Add new employee</button>
-    </form>
+  return (
+    <div>
+      <h2>Add employee</h2>
+      <form className={styles.form} onSubmit={handleFormChange}>
+        <label>First Name</label>
+        <input type="text" name="firstName" value={employee.firstName} onChange={handleInputChange} />
+        <label>Last Name</label>
+        <input type="text" name="lastName" value={employee.lastName} onChange={handleInputChange} />
+        <button>Add new employee</button>
+      </form>
+    </div>
   );
 };
 

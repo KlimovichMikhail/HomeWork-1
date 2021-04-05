@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../assets/ModalWindow.module.scss";
 
 const EditEmployee = props => {
@@ -9,22 +9,27 @@ const EditEmployee = props => {
 
     setEmployee({ ...employee, [name]: value });
   };
-  useEffect(() => {
-    setEmployee(props.currentEmployee)
-  }, [props])
+  useEffect(
+    () => {
+      setEmployee(props.currentEmployee);
+    },
+    [props]
+  );
+  const handleFormChange = event => {
+    event.preventDefault();
+    props.updateEmployee(employee.id, employee);
+  };
   return (
-    <form className={styles.form}
-      onSubmit={event => {
-        event.preventDefault();
-        props.updateEmployee(employee.id, employee);
-      }}
-    >
-      <label>First Name</label>
-      <input type="text" name="firstName" value={employee.firstName} onChange={handleInputChange} />
-      <label>Last Name</label>
-      <input type="text" name="lastName" value={employee.lastName} onChange={handleInputChange} />
-      <button>Edit employee</button>
-    </form>
+    <div>
+      <h2>Edit employee</h2>
+      <form className={styles.form} onSubmit={handleFormChange}>
+        <label>First Name</label>
+        <input type="text" name="firstName" value={employee.firstName} onChange={handleInputChange} />
+        <label>Last Name</label>
+        <input type="text" name="lastName" value={employee.lastName} onChange={handleInputChange} />
+        <button>Edit employee</button>
+      </form>
+    </div>
   );
 };
 

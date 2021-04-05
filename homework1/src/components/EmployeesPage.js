@@ -3,9 +3,9 @@ import Employee from "./Employee";
 import AddEmployee from "./AddEmployee";
 import EditEmployee from "./EditEmployee";
 import styles from "../assets/EmployeeList.module.scss";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-const EmployeeList = () => {
+const EmployeesPage = () => {
   const employeesList = [
     { id: uuidv4(), firstName: "Ivan", lastName: "Nefedov" },
     { id: uuidv4(), firstName: "Nikita", lastName: "Zalubov" },
@@ -43,23 +43,14 @@ const EmployeeList = () => {
       <h1>CRUD App </h1>
       <div className="flex-row">
         {isOpen ? (
-          <div>
-            <h2>Edit employee</h2>
-            <EditEmployee setIsOpen={setIsOpen} currentEmployee={currentEmployee} updateEmployee={updateEmployee} />
-          </div>
+          <EditEmployee setIsOpen={setIsOpen} currentEmployee={currentEmployee} updateEmployee={updateEmployee} />
         ) : (
-          <div className="flex-large">
-            <h2>Add employee</h2>
-            <AddEmployee addEmployee={addEmployee} />
-          </div>
+          <AddEmployee addEmployee={addEmployee} />
         )}
-        <div className="flex-large">
-          <h2>View employees</h2>
-          <Employee employees={employees} editEmployee={editEmployee} deleteEmployee={deleteEmployee} />
-        </div>
+        <Employee employees={employees} editEmployee={editEmployee} deleteEmployee={deleteEmployee} />
       </div>
     </div>
   );
 };
 
-export default EmployeeList;
+export default EmployeesPage;
