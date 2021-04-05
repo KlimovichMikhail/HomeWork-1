@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import styles from "../assets/ModalWindow.module.scss";
 
-const ModalWindow = props => {
+const AddEmployee = props => {
   const initialFormState = { id: null, firstName: "", lastName: "" };
   const [employee, setEmployee] = useState(initialFormState);
   const handleInputChange = event => {
     const { name, value } = event.target;
-
     setEmployee({ ...employee, [name]: value });
   };
   return (
@@ -28,4 +27,4 @@ const ModalWindow = props => {
   );
 };
 
-export default ModalWindow;
+export default AddEmployee;

@@ -20,7 +20,7 @@ const Employee = props => (
                 <button
                   className="button muted-button"
                   onClick={() => {
-                    props.editRow(employee);
+                    props.editEmployee(employee);
                   }}
                 >
                   Edit
@@ -33,7 +33,7 @@ const Employee = props => (
           ))
         ) : (
           <tr>
-            <td colSpan={3}>No users</td>
+            <td colSpan={3}>No employees</td>
           </tr>
         )}
       </tbody>
