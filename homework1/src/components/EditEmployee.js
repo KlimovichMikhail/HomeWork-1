@@ -19,7 +19,7 @@ const EditEmployee = props => {
     event.preventDefault();
     props.updateEmployee(employee.id, employee);
   };
-  return (
+  return props.isOpen && (
     <div>
       <h2>Edit employee</h2>
       <form className={styles.form} onSubmit={handleFormChange}>

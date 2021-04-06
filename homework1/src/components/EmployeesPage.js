@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Employee from "./Employee";
+import EmployeeList from "./EmployeeList";
 import AddEmployee from "./AddEmployee";
 import EditEmployee from "./EditEmployee";
 import styles from "../assets/EmployeeList.module.scss";
 import { v4 as uuidv4 } from "uuid";
 
 const EmployeesPage = () => {
-  const employeesList = [
+  const employeesData = [
     { id: uuidv4(), firstName: "Ivan", lastName: "Nefedov" },
     { id: uuidv4(), firstName: "Nikita", lastName: "Zalubov" },
     { id: uuidv4(), firstName: "Andrew", lastName: "Taranow" },
@@ -16,7 +16,7 @@ const EmployeesPage = () => {
 
   const initialFormState = { id: null, firstName: "", lastName: "" };
 
-  const [employees, setEmployees] = useState(employeesList);
+  const [employees, setEmployees] = useState(employeesData);
   const [currentEmployee, setCurrentEmployee] = useState(initialFormState);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -42,12 +42,9 @@ const EmployeesPage = () => {
     <div className={styles.heading}>
       <h1>CRUD App </h1>
       <div className="flex-row">
-        {isOpen ? (
-          <EditEmployee setIsOpen={setIsOpen} currentEmployee={currentEmployee} updateEmployee={updateEmployee} />
-        ) : (
-          <AddEmployee addEmployee={addEmployee} />
-        )}
-        <Employee employees={employees} editEmployee={editEmployee} deleteEmployee={deleteEmployee} />
+        <EditEmployee isOpen={isOpen} setIsOpen={setIsOpen} currentEmployee={currentEmployee} updateEmployee={updateEmployee} />
+        <AddEmployee isOpen={isOpen} addEmployee={addEmployee} />
+        <EmployeeList employees={employees} editEmployee={editEmployee} deleteEmployee={deleteEmployee} />
       </div>
     </div>
   );

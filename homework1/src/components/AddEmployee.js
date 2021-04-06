@@ -15,7 +15,7 @@ const AddEmployee = props => {
     setEmployee(initialFormState);
   };
 
-  return (
+  return !props.isOpen && (
     <div>
       <h2>Add employee</h2>
       <form className={styles.form} onSubmit={handleFormChange}>

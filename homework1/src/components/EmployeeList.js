@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../assets/Employee.module.scss";
 
-const Employee = props => (
+const EmployeeList = props => (
   <div className="flex-large">
     <h2>Employee List</h2>
     <div className={styles.employee}>
@@ -44,4 +44,4 @@ const Employee = props => (
   </div>
 );
 
-export default Employee;
+export default EmployeeList;
