@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../assets/Employee.module.scss";
 
-const EmployeeList = props => (
+const EmployeeList = ({ employees, onDelete, onEdit }) => (
   <div className="flex-large">
     <h2>Employee List</h2>
     <div className={styles.employee}>
@@ -13,8 +13,8 @@ const EmployeeList = props => (
           </tr>
         </thead>
         <tbody>
-          {props.employees.length > 0 ? (
-            props.employees.map(employee => (
+          {employees.length > 0 ? (
+            employees.map(employee => (
               <tr key={employee.id}>
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
@@ -22,12 +22,12 @@ const EmployeeList = props => (
                   <button
                     className="button muted-button"
                     onClick={() => {
-                      props.editEmployee(employee);
+                      onEdit(employee);
                     }}
                   >
                     Edit
                   </button>
-                  <button className="button muted-button" onClick={() => props.deleteEmployee(employee.id)}>
+                  <button className="button muted-button" onClick={() => onDelete(employee.id)}>
                     Delete
                   </button>
                 </td>
