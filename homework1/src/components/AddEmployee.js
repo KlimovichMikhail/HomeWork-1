@@ -1,7 +1,17 @@
+// @ts-nocheck
+import { useSelector, useDispatch } from 'react-redux'
 import React, { useState } from "react";
 import styles from "../assets/ModalWindow.module.scss";
+import { addEmployee} from "../redux/action/employee";
+import { v4 as uuidv4 } from "uuid";
 
-const AddEmployee = ({ isOpen, onSave }) => {
+const AddEmployee = () => {
+  const dispatch = useDispatch();
+  const onSave = employee => {
+    employee.id = uuidv4();
+    dispatch(addEmployee(employee));
+  };
+  const isOpen = useSelector(state=>state.employeesPage.isOpen)
   const initialFormState = { id: null, firstName: "", lastName: "" };
   const [employee, setEmployee] = useState(initialFormState);
   const handleInputChange = event => {
