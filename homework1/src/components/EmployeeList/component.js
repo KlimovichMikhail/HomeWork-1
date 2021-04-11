@@ -1,19 +1,8 @@
-// @ts-nocheck
-
-import { useSelector, useDispatch } from "react-redux";
 import React from "react";
-import styles from "../assets/Employee.module.scss";
-import {  deleteEmployee,setCurrentEmployee} from "../redux/action/employee";
+import styles from "../../assets/Employee.module.scss";
 
-const EmployeeList = () => {
-  const dispatch = useDispatch();
-  const employees = useSelector(state => state.employeesPage.employees);
-  const onEdit = employee => {
-    dispatch(setCurrentEmployee(employee.id, employee.firstName, employee.lastName));
-  };
-  const onDelete = id => {
-    dispatch(deleteEmployee(id));
-  };
+const EmployeeList = ({employees, onEdit,onDelete}) => {
+  
   return (
     <div className="flex-large">
       <h2>Employee List</h2>
