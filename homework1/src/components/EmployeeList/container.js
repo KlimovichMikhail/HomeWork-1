@@ -17,4 +17,4 @@ const EmployeeListContainer = () => {
     <EmployeeList employees={employees} onEdit={onEdit} onDelete={onDelete}/>
   );
 };
-export default EmployeeListContainer;
+export const container = EmployeeListContainer;

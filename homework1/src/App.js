@@ -1,5 +1,5 @@
 import styles from "./App.module.scss";
-import EmployeesPage from "./components/EmployeePage/component";
+import EmployeesPage from "./components/EmployeesPage";
 
 import React from "react";
 

@@ -16,4 +16,4 @@ const EditEmployeeContainer = () => {
   );
 };
 
-export default EditEmployeeContainer;
+export const container = EditEmployeeContainer;
