@@ -1,5 +1,12 @@
-import { ADD_EMPLOYEE, DELETE_EMPLOYEE, SET_CURRENT_EMPLOYEE, UPDATE_EMPLOYEE } from "../actionTypes/employee";
-import { v4 as uuidv4 } from "uuid";
+import {
+  DELETE_EMPLOYEE,
+  ADD_EMPLOYEE,
+  SET_CURRENT_EMPLOYEE,
+  UPDATE_EMPLOYEE,
+  EPMLOEE_LIST_ERROR,
+  EPMLOEE_LIST_SUCCESS,
+  EPMLOEE_LIST_LOADER
+} from "../actionTypes/employee";
 
 const initialState = {
   isOpen: false,
@@ -9,16 +16,31 @@ const initialState = {
     lastName: ""
   },
   employees: [
-    { id: uuidv4(), firstName: "Ivan", lastName: "Nefedov" },
-    { id: uuidv4(), firstName: "Nikita", lastName: "Zalubov" },
-    { id: uuidv4(), firstName: "Andrew", lastName: "Taranow" },
-    { id: uuidv4(), firstName: "Mihail", lastName: "Ptuskin" },
-    { id: uuidv4(), firstName: "Artem", lastName: "Haliman" }
+    // { id: uuidv4(), firstName: "Ivan", lastName: "Nefedov" },
+    // { id: uuidv4(), firstName: "Nikita", lastName: "Zalubov" },
+    // { id: uuidv4(), firstName: "Andrew", lastName: "Taranow" },
+    // { id: uuidv4(), firstName: "Mihail", lastName: "Ptuskin" },
+    // { id: uuidv4(), firstName: "Artem", lastName: "Haliman" }
   ]
 };
 
 function employeesPage(state = initialState, action) {
   switch (action.type) {
+    case EPMLOEE_LIST_ERROR:
+      return {
+        ...state,
+        isError: action.value,
+      };
+    case EPMLOEE_LIST_LOADER:
+      return {
+        ...state,
+        employeeLoader: action.value,
+      };
+    case EPMLOEE_LIST_SUCCESS:
+      return {
+				...state,
+				employees: action.value
+      };
     case ADD_EMPLOYEE:
       return Object.assign({}, state, {
         employees: state.employees.concat(action.payload)

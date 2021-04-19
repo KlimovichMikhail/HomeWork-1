@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../assets/ModalWindow.module.scss";
 
-const AddEmployee = ({onSave, isOpen}) => {
+const AddEmployee = ({ onSave, isOpen }) => {
   const initialFormState = { id: null, firstName: "", lastName: "" };
   const [employee, setEmployee] = useState(initialFormState);
   const handleInputChange = event => {
@@ -17,7 +17,7 @@ const AddEmployee = ({onSave, isOpen}) => {
 
   return (
     !isOpen && (
-      <div>
+      <div className={styles.heading}>
         <h2>Add employee</h2>
         <form className={styles.form} onSubmit={handleFormChange}>
           <label>First Name</label>

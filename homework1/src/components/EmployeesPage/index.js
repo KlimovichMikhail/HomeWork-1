@@ -1,17 +1,15 @@
 import React from "react";
 import EmployeeList from "../EmployeeList";
-import AddEmployee from "../AddEmployee";
-import EditEmployee from "../EditEmployee";
-import styles from "../../assets/EmployeeList.module.scss";
+import { Link } from "react-router-dom";
+import styles from "../../assets/ModalWindow.module.scss";
 
 const EmployeesPage = () => {
   return (
     <div className={styles.heading}>
       <h1>CRUD App </h1>
       <div className="flex-row">
-        <EditEmployee/>
-        <AddEmployee/>
-        <EmployeeList/>
+        <EmployeeList />
+        <Link to={"/add"}>+ Add employee</Link>
       </div>
     </div>
   );
