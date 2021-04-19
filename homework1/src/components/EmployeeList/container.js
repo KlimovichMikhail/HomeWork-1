@@ -18,7 +18,7 @@ const EmployeeListContainer = () => {
     dispatch(deleteEmployee(id));
   };
   const getEmployees = () => {
-		dispatch(getEmployeesList())
+    dispatch(getEmployeesList())
 	}
   return (
     <EmployeeList employees={employees} 

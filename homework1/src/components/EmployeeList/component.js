@@ -8,12 +8,11 @@ const EmployeeList = ({ employees, onEdit, onDelete, isError, employeeLoader, ge
   useEffect(() => {
     getEmployees();
   }, []);
-console.log(employees)
-
+  
   return (
     <div className="flex-large">
       <h2>Employee List</h2>
-      {!isError ? (
+      {isError ? (
         <div className={styles.error}>EMPLOYEES NOT FAUND</div>
       ) : employeeLoader ? (
         <Loader />

@@ -11,9 +11,10 @@ import {
 } from "../actionTypes/employee";
 
 export const getEmployeesList = () => async (dispatch) => {
+
 	dispatch(employeeLoader(true));
 	
-  const { value, error } = await Repository.APICore.getEmployeesList;
+  const { value, error } = await Repository.APICore.getEmployeesList();
   if (error || !value) {
     dispatch(employeeListError(true));
   } else dispatch(employeeListSuccess(value));

@@ -15,6 +15,8 @@ const initialState = {
     firstName: "",
     lastName: ""
   },
+  employeeLoader: false,
+  isError: false,
   employees: [
     // { id: uuidv4(), firstName: "Ivan", lastName: "Nefedov" },
     // { id: uuidv4(), firstName: "Nikita", lastName: "Zalubov" },
