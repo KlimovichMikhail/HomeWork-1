@@ -17,13 +17,7 @@ const initialState = {
   },
   employeeLoader: false,
   isError: false,
-  employees: [
-    // { id: uuidv4(), firstName: "Ivan", lastName: "Nefedov" },
-    // { id: uuidv4(), firstName: "Nikita", lastName: "Zalubov" },
-    // { id: uuidv4(), firstName: "Andrew", lastName: "Taranow" },
-    // { id: uuidv4(), firstName: "Mihail", lastName: "Ptuskin" },
-    // { id: uuidv4(), firstName: "Artem", lastName: "Haliman" }
-  ]
+  employees: []
 };
 
 function employeesPage(state = initialState, action) {
@@ -31,22 +25,28 @@ function employeesPage(state = initialState, action) {
     case EPMLOEE_LIST_ERROR:
       return {
         ...state,
-        isError: action.value,
+        isError: action.value
       };
     case EPMLOEE_LIST_LOADER:
       return {
         ...state,
-        employeeLoader: action.value,
+        employeeLoader: action.value
       };
-    case EPMLOEE_LIST_SUCCESS:
+    case EPMLOEE_LIST_SUCCESS: {
       return {
-				...state,
-				employees: action.value
+        ...state,
+        employees: action.value
       };
-    case ADD_EMPLOYEE:
+    }
+    case ADD_EMPLOYEE: {
       return Object.assign({}, state, {
         employees: state.employees.concat(action.payload)
       });
+      // return {
+      //   ...state,
+      //   employees: [...state.employees, action.payload]
+      // };
+    }
     case DELETE_EMPLOYEE:
       return {
         ...state,
@@ -74,7 +74,6 @@ function employeesPage(state = initialState, action) {
         isOpen: false
       };
     }
-
     default:
       return state;
   }

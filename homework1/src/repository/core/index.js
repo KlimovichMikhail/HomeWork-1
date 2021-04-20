@@ -1,6 +1,5 @@
 class Core {
   getEmployeesList = async () => {
-    console.log(123)
     const result = {
       value: null,
       error: null

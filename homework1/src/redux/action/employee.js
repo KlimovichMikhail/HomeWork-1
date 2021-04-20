@@ -1,4 +1,3 @@
-// @ts-nocheck
 import Repository from "../../repository";
 import {
   DELETE_EMPLOYEE,
@@ -7,24 +6,22 @@ import {
   UPDATE_EMPLOYEE,
   EPMLOEE_LIST_ERROR,
   EPMLOEE_LIST_SUCCESS,
-  EPMLOEE_LIST_LOADER,
+  EPMLOEE_LIST_LOADER
 } from "../actionTypes/employee";
 
-export const getEmployeesList = () => async (dispatch) => {
-
-	dispatch(employeeLoader(true));
-	
+export const getEmployeesList = () => async dispatch => {
+  dispatch(employeeLoader(true));
   const { value, error } = await Repository.APICore.getEmployeesList();
   if (error || !value) {
     dispatch(employeeListError(true));
   } else dispatch(employeeListSuccess(value));
-
   dispatch(employeeLoader(false));
 };
 
 export function employeeListError(value) {
   return { type: EPMLOEE_LIST_ERROR, value };
 }
+
 export function employeeListSuccess(value) {
   return { type: EPMLOEE_LIST_SUCCESS, value };
 }
@@ -36,7 +33,7 @@ export function employeeLoader(value) {
 export function addEmployee(id) {
   return {
     type: ADD_EMPLOYEE,
-    payload: id
+    payload: id,
   };
 }
 
@@ -46,6 +43,7 @@ export function deleteEmployee(id) {
     payload: id
   };
 }
+
 export function setCurrentEmployee(id, firstName, lastName) {
   return { type: SET_CURRENT_EMPLOYEE, id, firstName, lastName };
 }

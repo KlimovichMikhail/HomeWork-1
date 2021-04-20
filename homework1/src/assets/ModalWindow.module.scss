@@ -2,7 +2,7 @@
   margin: 0 0 2rem 0;
   text-align: center;
   font-weight: 400;
-  font-size: 40px;
+  font-size: 2.5rem;
   color: black;
 }
 .form {
@@ -14,14 +14,14 @@
 
 .form input {
   margin-bottom: 0.5rem;
-  height: 44px;
-  padding-left: 15px;
-  padding-right: 15px;
-  border: 1px solid #dbe2e8;
-  font-size: 14px;
-  border-radius: 2px;
+  height: 1.875rem;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  border: 0.0625rem solid #dbe2e8;
+  font-size: 0.875rem;
+  border-radius: 0.125rem;
   color: #636363;
-  box-shadow: 0 2px 2px 0 rgba(46, 60, 73, 0.05);
+  box-shadow: 0 0.125rem 0.125rem 0 rgba(46, 60, 73, 0.05);
   outline: none;
   width: 80%;
 }

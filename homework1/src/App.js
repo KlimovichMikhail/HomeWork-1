@@ -1,4 +1,4 @@
-import styles from "./App.module.scss";
+import styles from "../src/assets/App.module.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import EmployeesPage from "./components/EmployeesPage";
 import AddEmployee from "./components/AddEmployee";
@@ -12,7 +12,7 @@ function App() {
       <div className={styles.App}>
         <Switch>
           <Route exact path= {["/","/employee"]} render={() =><EmployeesPage/>} />
-          <Route path="/add" render={() =><AddEmployee/>} />
+          <Route path="/add" render={() =><AddEmployee/> } />
           <Route path="/edit" render={() =><EditEmployee/>} />
         </Switch>
       </div>
