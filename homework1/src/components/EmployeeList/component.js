@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -8,7 +9,7 @@ const EmployeeList = ({ employees, onEdit, onDelete, isError, employeeLoader, ge
   useEffect(() => {
     getEmployees();
   }, []);
-  
+
   return (
     <div className="flex-large">
       <h2>Employee List</h2>

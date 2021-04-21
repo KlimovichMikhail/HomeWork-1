@@ -28,9 +28,7 @@ const EditEmployee = ({ isOpen, currentEmployee, onChange }) => {
           <input type="text" name="firstName" value={employee.firstName} onChange={handleInputChange} />
           <label>Last Name</label>
           <input type="text" name="lastName" value={employee.lastName} onChange={handleInputChange} />
-         
-            <button>Edit employee</button>
-      
+          <button>Edit employee</button>
         </form>
       </div>
     )

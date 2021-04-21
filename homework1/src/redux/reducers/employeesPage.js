@@ -42,10 +42,6 @@ function employeesPage(state = initialState, action) {
       return Object.assign({}, state, {
         employees: state.employees.concat(action.payload)
       });
-      // return {
-      //   ...state,
-      //   employees: [...state.employees, action.payload]
-      // };
     }
     case DELETE_EMPLOYEE:
       return {
