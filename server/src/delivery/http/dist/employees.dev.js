@@ -2,7 +2,8 @@
 
 var express = require("express");
 
-var router = express.Router();
+var router = express.Router(); //Get employees
+
 router.get("", function _callee(req, res) {
   var error, value;
   return regeneratorRuntime.async(function _callee$(_context) {
@@ -46,6 +47,34 @@ router.get("", function _callee(req, res) {
         case 6:
         case "end":
           return _context.stop();
+      }
+    }
+  });
+}); //Create employee
+
+router.post("/create-employee", function _callee2(req, res) {
+  var error, value;
+  return regeneratorRuntime.async(function _callee2$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          error = undefined;
+          value = true;
+
+          if (!error) {
+            _context2.next = 5;
+            break;
+          }
+
+          res.status(500).json(error || new Error("UC undefined error"));
+          return _context2.abrupt("return");
+
+        case 5:
+          res.status(200).json(value);
+
+        case 6:
+        case "end":
+          return _context2.stop();
       }
     }
   });

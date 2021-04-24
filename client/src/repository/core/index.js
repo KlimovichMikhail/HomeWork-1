@@ -15,5 +15,16 @@ class Core {
     }
     return result;
   };
+//   createEmployee = async () => {
+//     let employee;
+//     try {
+//       const request = await axios.post("/api/employees");
+//       console.log(request.data);
+//       result.value = response.data
+//     } catch (e) {
+//       result.error = e.response.data;
+//     }
+//     return result;
+//   };
 }
 export default new Core();
