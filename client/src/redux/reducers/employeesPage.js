@@ -7,6 +7,7 @@ import {
   EPMLOEE_LIST_SUCCESS,
   EPMLOEE_LIST_LOADER
 } from "../actionTypes/employee";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   isOpen: false,
@@ -39,14 +40,19 @@ function employeesPage(state = initialState, action) {
       };
     }
     case ADD_EMPLOYEE: {
-      return Object.assign({}, state, {
-        employees: state.employees.concat(action.payload)
-      });
+      let firstName = action.firstName;
+      let lastName = action.lastName;
+      return {
+        ...state,
+        employees: [...state.employees, { id: uuidv4(), firstName, lastName }],
+        isOpen: false,
+        currentEmployee: {}
+      };
     }
     case DELETE_EMPLOYEE:
       return {
         ...state,
-        employees: state.employees.filter(employee => employee.id !== action.payload)
+        employees: state.employees.filter(employee => employee.id !== action.employeeId)
       };
     case SET_CURRENT_EMPLOYEE: {
       return {
@@ -60,6 +66,7 @@ function employeesPage(state = initialState, action) {
       };
     }
     case UPDATE_EMPLOYEE: {
+
       let firstName = action.firstName;
       let lastName = action.lastName;
       return {
