@@ -45,8 +45,7 @@ class Core {
     return result;
   };
 
-
-    createEmployee = async (firstName, lastName) => {
+  createEmployee = async (firstName, lastName) => {
     const result = {
       value: null,
       error: null,
@@ -64,7 +63,8 @@ class Core {
     }
     return result;
   };
-   getEmployee = async (id) => {
+   
+  getEmployee = async (id) => {
     const result = {
       value: null,
       error: null

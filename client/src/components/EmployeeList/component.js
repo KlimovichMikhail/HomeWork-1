@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import styles from "../../assets/Employee.module.scss";
 import Loader from "../Loader";
 
@@ -33,7 +33,7 @@ const EmployeeList = ({ employees, onEdit, onDelete, isError, employeeLoader, ge
                     <td>{employee.firstName}</td>
                     <td>{employee.lastName}</td>
                     <td>
-                      <Link to={"edit"}>
+                      {/* <Link to={"edit"}> */}
                         <button
                           className="button muted-button"
                           onClick={() => {
@@ -42,7 +42,7 @@ const EmployeeList = ({ employees, onEdit, onDelete, isError, employeeLoader, ge
                         >
                           Edit
                         </button>
-                      </Link>
+                      {/* </Link> */}
                       <button className="button muted-button" onClick={() => onDelete(employee.id)}>
                         Delete
                       </button>

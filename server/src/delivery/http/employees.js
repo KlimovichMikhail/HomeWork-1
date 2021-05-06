@@ -1,16 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const UseCases = require('../../useCases')
 
 router.get("", async (req, res) => {
-  const error = undefined;
-  const value = [
-    { id: 1, firstName: "Ivan", lastName: "Nefedov" },
-    { id: 2, firstName: "Nikita", lastName: "Zalubov" },
-    { id: 3, firstName: "Andrew", lastName: "Taranow" },
-    { id: 4, firstName: "Mihail", lastName: "Ptuskin" },
-    { id: 5, firstName: "Artem", lastName: "Haliman" }
-  ];
-
+  const { value, error } = await UseCases.EmployeeService.getList();
   if (error) {
     res.status(500).json(error || new Error("UC undefined error"));
     return;
@@ -18,7 +11,8 @@ router.get("", async (req, res) => {
   res.status(200).json(value);
 });
 
-router.delete("/:employeeId", async (req, res) => {
+router.delete("/:id", async (req, res) => {
+  const { value, error } = await UseCases.EmployeeService.deleteEmployee(req.params.id)
   if (error) {
     res.status(500).json(error || new Error("UC undefined error"));
     return;
@@ -27,8 +21,7 @@ router.delete("/:employeeId", async (req, res) => {
 });
 
 router.put("/:id", async (req, res) => { 
-  const error = undefined;
-  const value = true;
+  const { value, error } = await UseCases.EmployeeService.editEmployee(req.params.id, req.params.firstName, req.params.lastName);
   if (error) {
     res.status(500).json(error || new Error("UC undefined error"));
     return;
@@ -37,8 +30,7 @@ router.put("/:id", async (req, res) => {
 });
 
 router.post("", async (req, res) => {
-const error = undefined;
-const value = true;
+const { value, error } = await UseCases.EmployeeService.createEmployee(req.params.firstName, req.params.lastName);
 if (error) {
     res.status(500).json(error || new Error("UC undefined error"));
     return;
@@ -46,10 +38,8 @@ if (error) {
   res.status(200).json(value);
 });
 
-
 router.get("/:id", async (req, res) => {
-  const error = undefined;
-  const value = [];
+  const { value, error } = await UseCases.EmployeeService.getEmployee(req.params.id)
   if (error) {
     res.status(500).json(error || new Error("UC undefined error"));
     return;

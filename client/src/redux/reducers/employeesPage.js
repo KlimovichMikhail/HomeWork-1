@@ -49,11 +49,13 @@ function employeesPage(state = initialState, action) {
         currentEmployee: {}
       };
     }
-    case DELETE_EMPLOYEE:
+    case DELETE_EMPLOYEE:{
+      console.log(action.id);
       return {
         ...state,
-        employees: state.employees.filter(employee => employee.id !== action.employeeId)
+        employees: state.employees.filter(employee => employee.id !== action.id)
       };
+    }
     case SET_CURRENT_EMPLOYEE: {
       return {
         ...state,

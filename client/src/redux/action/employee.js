@@ -19,19 +19,27 @@ export const getEmployeesList = () => async dispatch => {
 };
 
 export const getEmployee = (id) => async (dispatch) => {
+  console.log(123);
+  dispatch(employeeLoader(true));
   const { value, error } = await Repository.APICore.getEmployee(id);
   if (error || !value) {
     dispatch(employeeListError(true));
-  } else dispatch(employeeListSuccess(value));
+  } else {
+    dispatch(employeeListSuccess(value));
+  }
+  dispatch(employeeLoader(false));
 };
 
-export const deleteEmployee = (employeeId) => async dispatch => {
-  const { value, error } = await Repository.APICore.deleteEmployee(employeeId);
+export const deleteEmployee = (id) => async dispatch => {
+  dispatch(employeeLoader(true));
+  const { value, error } = await Repository.APICore.deleteEmployee(id);
+
   if (error || !value) {
     dispatch(employeeListError(true));
-  } else 
-  dispatch(deleteStoreEmployee(employeeId));
-  dispatch(employeeListSuccess(value));
+  } else {
+  dispatch(deleteStoreEmployee(id));
+  }
+  dispatch(employeeLoader(false));
 };
 
 export const addEmployee = (firstName,lastName) => async dispatch => {
@@ -70,10 +78,10 @@ export function addStoreEmployee(firstName,lastName) {
   };
 }
 
-export function deleteStoreEmployee(employeeId) {
+export function deleteStoreEmployee(id) {
   return {
     type: DELETE_EMPLOYEE,
-    employeeId
+    id
   };
 }
 

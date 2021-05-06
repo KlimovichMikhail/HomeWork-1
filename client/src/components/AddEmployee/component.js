@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "../../assets/ModalWindow.module.scss";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 const AddEmployee = ({ onSave, isOpen }) => {
-  const history = useHistory();
+  // const history = useHistory();
   const initialFormState = { id: null, firstName: "", lastName: "" };
   const [employee, setEmployee] = useState(initialFormState);
   const handleInputChange = event => {
@@ -15,7 +15,7 @@ const AddEmployee = ({ onSave, isOpen }) => {
     if (!employee.firstName || !employee.lastName) return;
     onSave(employee);
     setEmployee(initialFormState);
-    history.push("/");
+    // history.push("/");
   };
 
   return (
